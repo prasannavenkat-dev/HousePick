@@ -1,0 +1,12 @@
+.form{
+    display: grid;
+    grid-template-rows: 1;
+    row-gap: 1;
+    
+}
+
+
+.inputField{
+    height: 50px;
+    margin-bottom: 20px;
+}

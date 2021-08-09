@@ -1,0 +1,53 @@
+@import "./board.css";
+@import "./form.css";
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    padding: 0;
+    background-color:#EEEEEE;
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+     margin-top: 30px;
+     margin-bottom: 30px;
+}
+
+.myGrid{
+
+        display: grid;
+        grid-template-columns:2fr 1fr;
+        grid-gap: 20px;
+
+
+}
+
+button{
+height: 45px;
+}
+div{
+ overflow: auto;
+
+}
+
+
+
+@media only screen and (max-width: 617px) {
+
+    .myGrid{
+
+
+        grid-template-columns:auto;
+
+
+}
+  }
+
+
+  
