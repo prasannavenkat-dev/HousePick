@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import { IoHomeSharp, IoRestaurant } from "react-icons/io5"
 import { FaDumbbell, FaCoffee } from "react-icons/fa"
 import { RiShoppingBasketFill, RiParkingFill } from "react-icons/ri";
-
+import uuidv4 from "uuid/dist/v4";
 
 export default function Form(props) {
 
@@ -41,7 +41,8 @@ export default function Form(props) {
 
             <TextField
              id="outlined-select-currency" 
-             select label="Type"
+             select 
+             label="Type"
              value={selectedType}
              onChange={(e) => handleType(e.target.value)}
              helperText="Please select the type of Building"
@@ -79,36 +80,27 @@ export default function Form(props) {
 
 
             <br />
-
+         
             {
                 (selectedType === 'House' && block) &&
-                <TextField 
-                id="standard-search"
-                label="House Name" 
-                helperText="Please enter house name"
-                type="search"
-                maxLength={7}
-                value={selectedName}
-                onChange={(e) => handleName(e.target.value)} />
+                <TextField key={uuidv4()} id="standard-search"
+                 label="House Name"
+                 type="search"  
+                 helperText="Please enter house name"  
+                 value={selectedName} 
+                 autoFocus
+                  onChange={(e) => handleName(e.target.value)} />
+
             }
-
             <br />
-
-
+ 
             {selectedType !== "House" ?
 
                 (selectedType ? 
                 <Button variant="contained" color="primary" onClick={() => { addItem(selectedType, selectedName, board, block) }}>Add Item</Button> 
-                : 
-                <Button variant="contained" color="primary" >Add Item</Button>)
+                : <Button variant="contained" color="primary" >Add Item</Button>):
 
-                :
-
-                (selectedName ? 
-                <Button variant="contained" color="primary" onClick={() => { addItem(selectedType, selectedName, board, block) }}>Add Item</Button> 
-                :
-                <Button variant="contained" color="primary" disabled >Add Item</Button>
-                )
+                (selectedName ? <Button variant="contained" color="primary" onClick={() => { addItem(selectedType, selectedName, board, block) }}>Add Item</Button> :<Button variant="contained" color="primary" disabled >Add Item</Button>)
             }
      
 

@@ -21,12 +21,16 @@ export default function FindHome(props) {
     setOpen(true);
 
     let arr = handleCalculate()
-
+  
     setResult(arr)
+
+
+
   };
 
   const handleClose = () => {
     setOpen(false);
+    resetAll()
   };
 
 
@@ -47,34 +51,28 @@ export default function FindHome(props) {
 
       <Button style={{ width: "100%" }} variant="outlined" color="secondary" onClick={() => { resetAll() }}>RESET ALL</Button>
 
-
       <Dialog
         fullScreen={fullScreen}
         open={open}
         onClose={handleClose}
-        aria-labelledby="responsive-dialog-title"
-      >
+        aria-labelledby="responsive-dialog-title">
         <DialogTitle id="responsive-dialog-title">{`We Found your ideal home!`}&nbsp;
         <GiPartyPopper size={28}/></DialogTitle>
 
         
         <DialogContent>
          
-            {/* <StarIcon style={{color:"#F3BF2B"}} /> */}
-
-
             <Typography variant="h5" component="h2">
                House Name : {result[0]} <br/>
                Block No   : {result[1]} 
            
             </Typography>
              
-          
-            
-        
+
         </DialogContent>
+
         <DialogActions>
-          <Button autoFocus onClick={handleClose} color="primary">
+          <Button autoFocus onClick={()=> handleClose()} color="primary">
             Close
           </Button>
 

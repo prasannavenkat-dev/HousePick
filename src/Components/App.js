@@ -8,7 +8,7 @@ import Navbar from "./Navbar"
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
-import uuidv4 from "uuid/dist/v4"
+import uuidv4 from "uuid/dist/v4";
 function App() {
   const [board, setBoard] = useState([])
   const [block, setBlock] = useState('');
@@ -157,7 +157,7 @@ function App() {
   function handleCalculate() {
     let arr = calculate(gym, teaShop, parking, market, restaurant, house)
 
-    resetAll()
+  
     return arr
   }
 
