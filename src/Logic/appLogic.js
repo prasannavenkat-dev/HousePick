@@ -103,18 +103,20 @@ export default function calculate(gymValue, teaShopValue, parkingValue, marketVa
 
     let min = res[0][1];
     let minName = res[0][0]
+    let block=res[0][2];
     for (let i = 0; i < res.length; i++) {
 
         if (res[i][1] < min) {
             min = res[i][1]
             minName = res[i][0]
-            houseValue = res[i][2]
+            block = res[i][2]
         }
 
 
     }
+   
 
-    return [minName, houseValue]
+    return [minName, block]
 
 
 }
